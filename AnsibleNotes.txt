@@ -1,9 +1,17 @@
 Creating Virtual labs of Cisco routers, switches, and hosts for Ansible lab practice 
+--------------------------------------------------------------------------------------
+Creating the VM within Linux:
+sudo virt-install --name eve-ng --ram 8192 --vcpus 6 --disk path=/var/lib/libvirt/images/eve-ng.qcow2,size=80 --cdrom /var/lib/libvirt/images/eve-ce-prod-6.2.0-4-full.iso --os-variant ubuntu22.04 --network network=default --graphics vnc,listen=0.0.0.0 --cpu host-passthrough  
+Typically, I would use something like VMWare Workstation on a Windows PC but I took the chance of using a physical Linux server due to its low OS processing load and memory usage compared to Windows.   Using RedHat’s blog about virsh: https://www.redhat.com/en/blog/virsh-subcommands , I was able to identify the main couple of commands that I would be using for this personal project: 
+virsh start/shutdown/reboot  
+While it’s not important for me in this project, it’s good to note that: virsh list --all, virsh domifaddr <vm name> are good commands to write down (lists all VMs and their state and gets the IP address of the VM, respectively).
 
-Creating the VM within Linux: sudo virt-install --name eve-ng --ram 8192 --vcpus 6 --disk path=/var/lib/libvirt/images/eve-ng.qcow2,size=80 --cdrom /var/lib/libvirt/images/eve-ce-prod-6.2.0-4-full.iso --os-variant ubuntu22.04 --network network=default --graphics vnc,listen=0.0.0.0 --cpu host-passthrough  Typically, I would use something like VMWare Workstation on a Windows PC but I took the chance of using a physical Linux server due to its low OS processing load and memory usage compared to Windows.   Using RedHat’s blog about virsh: https://www.redhat.com/en/blog/virsh-subcommands , I was able to identify the main couple of commands that I would be using for this personal project: virsh start/shutdown/reboot  While it’s not important for me in this project, it’s good to note that: virsh list --all, virsh domifaddr <vm name> are good commands to write down (lists all VMs and their state and gets the IP address of the VM, respectively).
-
-Currently, my layout is this:  MacBook or Windows PC -> SSH into Linux Server -> EVE-NG hosting the images  While it’s a bit impractical from a lab standpoint (because I can and should have been running it from my main PC to begin with), this allows me to practice as a remote dev instead of a physical one. This also allows the process to be platform-independent, meaning, no matter how you want to start this project (Mac, Windows or LinuxOS)
+Currently, my layout is this:   MacBook or Windows PC (Using WSL) -> SSH into Linux Server -> EVE-NG hosting the images  . While it’s a bit impractical from a lab standpoint (because I can and should have been running it from my main PC to begin with), this allows me to practice as a remote dev instead of a physical one. This also allows the process to be platform-independent, meaning, no matter how you want to start this project (Mac, Windows or LinuxOS)
 
 Interestingly, this layout allows me to learn some SSH commands that can be useful later. 
 For example:  ssh -L 8080:<VM IP> user@server-ip  acts like a tunnel to the VM, provided that you allow port 8080 on the server and have it be redirected to the VM.  Adding images of routers, switches, etc.  
+
+Loading Images on EVE-NG
+------------------------
+Normally, this is a process that doesn't normally happen as a Network Admin/Engineer. Therefore, I'm treating this process as receiving functional devices but with corrupted images. 
 
