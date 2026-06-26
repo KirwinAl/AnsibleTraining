@@ -9,7 +9,10 @@ While it’s not important for me in this project, it’s good to note that: vir
 Currently, my layout is this:   MacBook or Windows PC (Using WSL) -> SSH into Linux Server -> EVE-NG hosting the images  . While it’s a bit impractical from a lab standpoint (because I can and should have been running it from my main PC to begin with), this allows me to practice as a remote dev instead of a physical one. This also allows the process to be platform-independent, meaning, no matter how you want to start this project (Mac, Windows or LinuxOS)
 
 Interestingly, this layout allows me to learn some SSH commands that can be useful later. 
-For example:  ssh -L 8080:<VM IP> user@server-ip  acts like a tunnel to the VM, provided that you allow port 8080 on the server and have it be redirected to the VM.  Adding images of routers, switches, etc.  
+For example: 
+ssh -J user@server-ip eve@vm-ip
+Allows me to connect to the server and *jump* to the EVE VM directly. 
+-L was another flag I could use if I wanted to tunnel to the server and access the web UI on my main machines
 
 Loading Images on EVE-NG
 ------------------------
