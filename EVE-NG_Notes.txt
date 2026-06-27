@@ -18,3 +18,6 @@ Loading Images on EVE-NG
 ------------------------
 Normally, this is a process that doesn't normally happen as a Network Admin/Engineer. Therefore, I'm treating this process as receiving functional devices but with corrupted images. 
 
+Router
+-------
+The process starts similarly for both but starting with the one that gave me sucesss
