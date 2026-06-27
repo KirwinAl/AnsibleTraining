@@ -20,4 +20,15 @@ Normally, this is a process that doesn't normally happen as a Network Admin/Engi
 
 Router
 -------
-The process starts similarly for both but starting with the one that gave me sucesss
+The process starts similarly for both but starting with the one that gave me success. 
+Following this guide from EVE-NG: https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-dynamips-images-cisco-ios/
+
+After obtaining the image (In my case, the IOS 12.4 from the C7200 Router), I SSH'ed to the EVE VM and followed these steps:
+1- Created a temporary directory: mkdir images_temp
+2- Moved the .image to the correct addons folder: mv c7200.image /opt/unetlab/addons/dynamips/
+3- Fixed the permissions: /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+
+The guide called for deleting and cleaning up the temporary but I left it for future devices that I may want to experiment with.
+
+After moving the image, I moved into the web UI and logged in and started a lab to play with. I added a router node with the template of Cisco Dyanmips IOS (The image that I have and put in). After starting the node, everything booted and everything worked!
+
