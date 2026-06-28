@@ -6,10 +6,10 @@ This is using EVE version 6.2.0-4 Community Edition hosted on a local Ubuntu 24.
 Ryzen 7 3700X with 32GBs of 3200MHz DDR4 RAM
 
 ## Images
-IOS 12.4 and IOL L3 Switch
+IOS 12.4 and vIOS L2 Switch
 
 ## Network Topology
-VPC -> IOL Switch -> C7200 Router -> Internet
+VPC -> vIOS Switch -> C7200 Router -> Internet
 
 A small basic network to demonstrate network automation.
 
