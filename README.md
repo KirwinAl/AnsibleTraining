@@ -11,6 +11,8 @@ IOS 12.4 and vIOS L2 Switch
 ## Network Topology
 VPC -> vIOS Switch -> C7200 Router -> Internet
 
+<img width="521" height="667" alt="image" src="https://github.com/user-attachments/assets/0cfd936d-05b8-49db-87ca-04dd974046a1" />
+
 A small basic network to demonstrate network automation.
 
 This is **NOT** meant to be a beginner tutorial and my experience and tools that I used aren't the only methods to achieve and learn Ansible as my notes later will say. Please note as well that none of what I'm doing is efficient or the "correct" way of doing things, just the things that worked the best for me.
