@@ -1,0 +1,8 @@
+- name: Ping test
+  hosts: routers
+  gather_facts: no
+  tasks:
+    - name: Pinging hosts
+      cisco.ios.ios_command:
+        commands:
+          - show version
