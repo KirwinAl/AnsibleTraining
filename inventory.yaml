@@ -1,10 +1,11 @@
 all:
   vars:
-    ansible_network_os: cisco.ios.ios
-    children:
+      ansible_network_os: cisco.ios.ios
+      ansible_connection: network_cli
+  children:
     routers:
       hosts:
-        r1:
+        R1:
           ansible_host: 192.168.122.71
           #ansible_port: 32769 not needed
     #switches:

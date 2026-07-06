@@ -1,3 +1,0 @@
-ansible_password_auth: true
-ansible_user: cisco
-ansible_password: cisco
