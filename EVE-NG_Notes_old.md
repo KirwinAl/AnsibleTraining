@@ -42,6 +42,7 @@ This process gave me the most issues. Originally, I was loading with switch Linu
 
 The process that did work is very similar to the router setup but with one specific distinction since it's now on qcow2 instead of a bin with IOL:
 The folder that holds the .qcow2 image MUST have a specific folder name and file name. Here are the steps I did, followed from https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-vios-from-virl/:
+
 1- Created a directory in the qemu folder of the image: mkdir /opt/unetlab/addons/qemu/viosl2-adventerprisek9-m.SSA.high_iron_20200929
 2- Renamed the image file to virtioa.qcow2 (in File Explorer) and moved it to that new directory: mv virtioa.qcow2 /opt/unetlab/addons/qemu/viosl2-adventerprisek9-m.SSA.high_iron_20200929
 3- Fixed the permissions: /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
