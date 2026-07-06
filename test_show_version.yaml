@@ -4,4 +4,4 @@
     - name: Pinging hosts
       cisco.ios.ios_command:
         commands:
-          - show version
+          - show ip interface brief
