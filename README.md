@@ -14,7 +14,7 @@ VPC -> vIOS Switch -> C7200 Router -> Internet (Old)*
 
 VPC -> vIOS Switch -> CSR1000 V17 -> Internet
 
-<img width="521" height="667" alt="image" src="https://github.com/user-attachments/assets/0cfd936d-05b8-49db-87ca-04dd974046a1" />
+<img width="793" height="807" alt="image" src="https://github.com/user-attachments/assets/40df1d69-064a-42a4-b82b-2deb59630bcd" />
 
 A small basic network to demonstrate network automation.
 
