@@ -10,7 +10,7 @@ IOS 12.4 and vIOS L2 Switch (Old)*
 IOS XE (CSR1000) and vIOS L2 Switch
 
 ## Network Topology
-VPC -> vIOS Switch -> C7200 Router -> Internet (Old)*
+~~VPC -> vIOS Switch -> C7200 Router -> Internet (Old)*~~
 
 VPC -> vIOS Switch -> CSR1000 V17 -> Internet
 
