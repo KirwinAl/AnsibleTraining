@@ -33,7 +33,9 @@ Router
 ~~The guide called for deleting and cleaning up the temporary but I left it for future devices that I may want to experiment with.~~
 
 ~~After moving the image, I moved into the web UI and logged in and started a lab to play with. I added a router node with the template of Cisco Dynamips IOS (The image that I have and put in). After starting the node, everything booted and everything worked!~~
+
 ==Read EVE_NetworkSetup.md to get the new installation method I used.==
+
 Switch
 -------
 This process gave me the most issues. Originally, I was loading with switch Linux images since they're designed for simulations. Since it did not work, I won't go into details on setting up IOL images but after researching, I have also discovered that vIOS images for switches exists! But I will say the error that I kept running into while setting up IOL, after creating my iourc file, the switch will have a fatal boot as there was a missing file and it kept failing POST.
