@@ -8,10 +8,10 @@ While it’s not important for me in this project, it’s good to note that: `vi
 
 ~~Currently, my layout is this: MacBook or Windows PC (Using WSL) -> SSH into Linux Server -> EVE-NG hosting the images. While it’s a bit impractical from a lab standpoint (because I can and should have been running it from my main PC to begin with), this allows me to practice as a remote dev instead of a physical one. This also allows the process to be platform-independent, meaning, no matter how you want to start this project (Mac, Windows or LinuxOS)~~
 
-~~Interestingly, this layout allows me to learn some SSH commands that can be useful later. ~~
+~~Interestingly, this layout allows me to learn some SSH commands that can be useful later~~
 ~~For example:~~
 ~~ssh -J user@server-ip eve@vm-ip~~
-~~Allows me to connect to the server and *jump* to the EVE VM directly. ~~
+~~Allows me to connect to the server and *jump* to the EVE VM directly~~
 ~~-L was another flag I could use if I wanted to tunnel to the server and access the web UI on my main machines~~
 
 **Instead of deleting this section, I mentioned the new setup and to record a bit of my failures/complications for this project as well. Please see EVE_NetworkSetup.md to be up-to-date.**
@@ -22,7 +22,7 @@ Normally, this is a process that doesn't normally happen as a Network Admin/Engi
 
 Router
 -------
-~~The process starts similarly for both but starting with the one that gave me success. ~~
+~~The process starts similarly for both but starting with the one that gave me success~~
 ~~Following this guide from EVE-NG: https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-dynamips-images-cisco-ios/~~
 
 ~~After obtaining the image (In my case, the IOS 12.4 from the C7200 Router), I SSH'ed to the EVE VM and followed these steps:~~
