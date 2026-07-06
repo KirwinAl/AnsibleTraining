@@ -2,12 +2,12 @@ Before I talk about the network itself, I would like to talk about the complicat
 
 1) The setup is now different, hence why I renamed the EVE-NG_Notes Old.
     - While the image setup is the same, the image of the router changed. It is NOT C7200 image anymore but now it is a CSR1000 IOS XE v17 image. 
-    A quick rundown of the installation (Link here: https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-csrv1000-16-x-denali-everest-fuji/ [^1]):
+    A quick rundown of the installation (Link here: https://www.eve-ng.net/index.php/documentation/howtos/howto-add-cisco-csrv1000-16-x-denali-everest-fuji/)*:
         - Uploaded the image to the images_temp folder and renamed to virtioa.qcow2
         - Created a directory in the qemu folder of the image: mkdir /opt/unetlab/addons/qemu/csr1000vng-universal9.17.03.05
         - Renamed the image file to virtioa.qcow2 (in File Explorer) and moved it to that new directory: mv virtioa.qcow2 /opt/unetlab/addons/qemu/csr1000vng-universal9.17.03.05
         - Fixed the permissions: /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
-        [^1]Skipped the image creation since it was pre-made for me
+        *Skipped the image creation since it was pre-made for me
 
 **Why?**
 
