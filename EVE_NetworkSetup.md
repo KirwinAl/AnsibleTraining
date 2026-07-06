@@ -12,6 +12,7 @@ Before I talk about the network itself, I would like to talk about the complicat
 **Why?**
 
 While the image worked great, there was an issue when trying to manually SSH to the router using my macOS. To give a rough explanation, the C7200 uses old algorithms for SSH that my macOS could not support. I tried using different SSH methods of OpenSSH and paramiko but these newer methods have old algorithms disabled by default. I was able to eventually find a work-around for manually connecting but with Ansible, it was a hard-no. I researched and saw Reddit's recommendation for ENCOR for CSR1000V and it works great. 
+
 2) The environment setup is entirely different:
 
 Ansible is only configured on the server and I switched to a DevOps approach now. Git is now the main method of uploading and managing playbooks and inventories.
