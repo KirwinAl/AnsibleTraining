@@ -7,6 +7,7 @@ Before I talk about the network itself, I would like to talk about the complicat
         - Created a directory in the qemu folder of the image: mkdir /opt/unetlab/addons/qemu/csr1000vng-universal9.17.03.05
         - Renamed the image file to virtioa.qcow2 (in File Explorer) and moved it to that new directory: mv virtioa.qcow2 /opt/unetlab/addons/qemu/csr1000vng-universal9.17.03.05
         - Fixed the permissions: /opt/unetlab/wrappers/unl_wrapper -a fixpermissions
+        
         *Skipped the image creation since it was pre-made for me
 
 **Why?**
