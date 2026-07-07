@@ -4,24 +4,36 @@
     - name: Turn on interfaces
       cisco.ios.ios_config:
         lines:
-          - interface GigabitEthernet2
           - no shutdown
+        parents:
+          - interface GigabitEthernet2
 
 - name: Creating Sub-interfaces
   hosts: routers
   tasks:
-    - name: Create sub-interfaces
+    - name: Create Gi2.10
       cisco.ios.ios_config:
         lines:
-          - interface GigabitEthernet2.10
           - encapsulation dot1Q 10
           - description Management VLAN
           - ip address 10.10.27.1 255.255.255.192
-          - interface GigabitEthernet2.20
+        parents:
+          - interface GigabitEthernet2.10
+
+    - name: Create Gi2.20
+      cisco.ios.ios_config:
+        lines:
           - encapsulation dot1Q 20
           - description Users VLAN
           - ip address 10.10.27.65 255.255.255.192
-          - interface GigabitEthernet2.30
+        parents:
+          - interface GigabitEthernet2.20
+          
+    - name: Create Gi2.30
+      cisco.ios.ios_config:
+        lines:
           - encapsulation dot1Q 30
           - description Reserved VLAN
           - ip address 10.10.27.129 255.255.255.192
+        parents:
+          - interface GigabitEthernet2.30
