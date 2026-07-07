@@ -62,3 +62,19 @@ To quickly explain the fields and to talk two "hidden" variables, let's begin wi
 `children:` This is where you start naming different groups and logically separating devices. `routers` and `switches` are two different groups, `hosts` is formalizing the device, `SW1` and `R1` are the names of the devices and `ansible_host:` will have the FQDN or IP address of the device. 
 
 **`#` exists for now since I'm still developing the network through Ansible. This is the commenting symbol and Ansible will not process that symbol and anything after in the same line.**
+
+Now there are two hidden "variables" that I used to connect to the devices: 
+
+`ansible_user:` (SSH Username) and `ansible_password:` (SSH password)
+
+and that's on purpose. Normally in a lab setting, this is perfectly okay thing to include these two under the `all:` group or in the other groups if needed. But because I want to simulate this project as a live production level project, I learned that I could separate the variables under another folder called `group_vars` in the root directory and name it based on the group, in this case `all.yaml`.
+
+All the file contains is:
+```
+ansible_user: (SSH Username)
+ansible_password: (SSH Password)
+```
+
+As for the device configuration, since I have to manually do this anyway before Ansible can directly take over, make sure the SSH version is version 2. 
+
+***Version 1 and 1.99 are not supported in my experience.***
