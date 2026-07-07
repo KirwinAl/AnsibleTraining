@@ -3,7 +3,7 @@
   tasks:
     - name: Turn on interfaces
       cisco.ios.ios_config:
-          commands:
+          lines:
             - interface GigabitEthernet2
             - no shutdown
 
@@ -12,7 +12,7 @@
   tasks:
     - name: Create sub-interfaces
       cisco.ios.ios_config:
-        commands:
+        lines:
           - interface GigabitEthernet2.10
           - encapsulation dot1Q 10
           - description Management VLAN
