@@ -1,5 +1,5 @@
 name: Creating Interfaces
-  blocks:
+  block:
     - name: Enabling GigabitEthernet2
       hosts: routers
       tasks:
