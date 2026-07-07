@@ -1,17 +1,19 @@
-name: Enabling GigabitEthernet2
-  hosts: routers
-  tasks:
-    - name: Turn on interfaces
-      cisco.ios.ios_config:
+name: Creating Interfaces
+  blocks:
+    - name: Enabling GigabitEthernet2
+      hosts: routers
+      tasks:
+        - name: Turn on interfaces
+          cisco.ios.ios_config:
         commands:
           - interface GigabitEthernet2
           - no shutdown
-
-name: Creating Sub-interfaces
-  hosts: routers
-  tasks:
-    - name: Create sub-interfaces
-      cisco.ios.ios_config:
+    
+    - name: Creating Sub-interfaces
+        hosts: routers
+        tasks:
+        - name: Create sub-interfaces
+          cisco.ios.ios_config:
         commands:
           - interface GigabitEthernet2.10
           - encapsulation dot1Q 10
