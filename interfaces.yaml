@@ -38,8 +38,10 @@
         parents:
           - interface GigabitEthernet2.30
 
-#Seeing that it's not saving, this is needed.
+# Seeing that it's not saving, this is needed.
 - name: Save configuration
-  cisco.ios.ios_config:
-    save_when: modified
-
+  hosts: routers
+  tasks:
+    - name: Save configuration if modified
+      cisco.ios.ios_config:
+        save_when: modified

@@ -9,9 +9,3 @@
           - network 10.10.27.64 0.0.0.63 area 0
           - network 10.10.27.128 0.0.0.63 area 0
           - network 192.168.122.0 0.0.0.255 area 0
-
-- name: save running-config
-  cisco.ios.ios_command:
-    commands: copy running-config startup-config
-  vars:
-    ansible_command_timeout: 30
