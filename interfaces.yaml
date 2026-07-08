@@ -39,10 +39,7 @@
           - interface GigabitEthernet2.30
 
 #Seeing that it's not saving, this is needed.
-- name: save running-config
-  hosts: routers
-  tasks:
-    - name: Save running-config
-      cisco.ios.ios_command:
-        commands: copy running-config startup-config
+- name: Save configuration
+  cisco.ios.ios_config:
+    save_when: modified
 
