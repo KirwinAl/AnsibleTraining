@@ -45,5 +45,4 @@
     - name: Save running-config
       cisco.ios.ios_command:
         commands: copy running-config startup-config
-      vars:
-        ansible_command_timeout: 30
+
