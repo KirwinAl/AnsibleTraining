@@ -1,0 +1,11 @@
+- name: Enabling OSPF
+  hosts: routers
+  tasks:
+    - name: Enable OSPF on the router
+      cisco.ios.ios_config:
+        lines:
+          - router ospf 1
+          - network 10.10.27.0 0.0.0.63 area 0
+          - network 10.10.27.64 0.0.0.63 area 0
+          - network 10.10.27.128 0.0.0.63 area 0
+          - network 192.168.122.0 0.0.0.255 area 0
