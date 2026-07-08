@@ -37,10 +37,13 @@
           - ip address 10.10.27.129 255.255.255.192
         parents:
           - interface GigabitEthernet2.30
-          
+
 #Seeing that it's not saving, this is needed.
-- name: save running-config 
-  cisco.ios.ios_command:
-    commands: copy running-config startup-config
-  vars:
-    ansible_command_timeout: 30
+- name: save running-config
+  hosts: routers
+  tasks:
+    - name: Save running-config
+      cisco.ios.ios_command:
+        commands: copy running-config startup-config
+      vars:
+        ansible_command_timeout: 30
