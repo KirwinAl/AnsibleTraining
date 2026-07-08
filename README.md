@@ -7,6 +7,7 @@ Ryzen 7 3700X with 32GBs of 3200MHz DDR4 RAM
 
 ## Images
 ~~IOS 12.4 and vIOS L2 Switch~~ (Old)*
+
 IOS XE (CSR1000) and vIOS L2 Switch
 
 ## Network Topology
