@@ -9,3 +9,11 @@
           - network 10.10.27.64 0.0.0.63 area 0
           - network 10.10.27.128 0.0.0.63 area 0
           - network 192.168.122.0 0.0.0.255 area 0
+
+# Seeing that it's not saving, this is needed.
+- name: Save configuration
+  hosts: routers
+  tasks:
+    - name: Save configuration if modified
+      cisco.ios.ios_config:
+        save_when: modified
