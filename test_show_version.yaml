@@ -4,4 +4,4 @@
     - name: Pinging hosts
       cisco.ios.ios_command:
         commands:
-          - show cdp neighbors
+          - show ip interface brief
