@@ -6,7 +6,7 @@ This is using EVE version 6.2.0-4 Community Edition hosted on a local Ubuntu 24.
 Ryzen 7 3700X with 32GBs of 3200MHz DDR4 RAM
 
 ## Images
-IOS 12.4 and vIOS L2 Switch (Old)*
+~~IOS 12.4 and vIOS L2 Switch~~ (Old)*
 IOS XE (CSR1000) and vIOS L2 Switch
 
 ## Network Topology
