@@ -33,7 +33,10 @@ Now, this file is going to layout some goals of the project in a bit more detail
 
 My private network inside EVE is going to have an IP address of 10.10.27.0/24 and the goals of the playbooks are as follows:
 
-1. Ansible must create VLANs 20 and 30 on SW1. Must name them correctly (see ReadMe) and assign GigabitEthernet 0/1 and 1/1 to VLAN 10, Gi 0/2-1/2 to VLAN 20 and Gi 0/3-1/3 to VLAN 30. Ansible should also disable 1/0 as it won't be used. **VLAN 10 is pre-made so we can SSH on the switch with zero issues. A loopback network would also achieve this**
+1. Ansible must create VLANs 20 and 30 on SW1. Must name them correctly (see ReadMe) and assign ~~GigabitEthernet 0/1 and 1/1 to VLAN 10~~, Gi 0/2-1/2 to VLAN 20 and Gi 0/3-1/3 to VLAN 30. Ansible should also disable 1/0 as it won't be used. ~~**VLAN 10 is pre-made so we can SSH on the switch with zero issues. A loopback network would also achieve this**~~ 
+
+**I will talk about why I removed VLAN 10 in NetworkNotes.md**
+
 2. Ansible should create sub-interfaces on the router's GigabitEthernet2 with the associated VLANs. I will add OSPF routing as well so there is communication between all networks.
 3. Each VLAN is going to have 50 hosts each so subnetting to /26 network is a must. Each VLAN interface should have the second usable address while the first goes to the sub-interfaces on the router.
 4. The Router should handle the DHCP pool of each subnet, gateway being the router itself.

@@ -8,17 +8,17 @@
         parents:
           - interface GigabitEthernet2
 
-- name: Creating Sub-interfaces
+- name: Creating Sub-interfaces 
   hosts: routers
   tasks:
-    - name: Create Gi2.10
+    - name: Create Gi2.1 # Talk about the issue of no VLAN 1 not working
       cisco.ios.ios_config:
         lines:
-          - encapsulation dot1Q 10
+          - encapsulation dot1Q 1
           - description Management VLAN
           - ip address 10.10.27.1 255.255.255.192
         parents:
-          - interface GigabitEthernet2.10
+          - interface GigabitEthernet2.1
 
     - name: Create Gi2.20
       cisco.ios.ios_config:
