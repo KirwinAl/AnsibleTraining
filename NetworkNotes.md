@@ -2,7 +2,7 @@ This section covers networking notes specific to this project; moments where con
 ---
 
 ### Things are changing again...
----/
+---
 To give more context on top of the current one, the network will still use a Router-on-a-stick configuration. However, I'm changing my perspective on how EVE-NG works and it's sort of working:
 - I have to consider that the EVE interface to the virtual network is a node on its own, so a router/bridge that is still included in the network even though it's not managed by the network. 
 
