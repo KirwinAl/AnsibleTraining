@@ -11,13 +11,8 @@ Ryzen 7 3700X with 32GBs of 3200MHz DDR4 RAM
 IOS XE (CSR1000) and vIOS L2 Switch
 
 ## Network Topology
-~~VPC -> vIOS Switch -> C7200 Router -> Internet (Old)*~~
+**Please see NetworkNotes.md for the updated layout.**
 
-VPC -> vIOS Switch -> CSR1000 V17 -> Internet
-
-<img width="793" height="807" alt="image" src="https://github.com/user-attachments/assets/40df1d69-064a-42a4-b82b-2deb59630bcd" />
-
-A small basic network to demonstrate network automation.
 
 This is **NOT** meant to be a beginner tutorial and my experience and tools that I used aren't the only methods to achieve and learn Ansible as my notes later will say. Please note as well that none of what I'm doing is efficient or the "correct" way of doing things, just the things that worked the best for me.
 

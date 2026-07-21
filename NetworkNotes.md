@@ -1,11 +1,8 @@
 This section covers networking notes specific to this project; moments where configurations work on physical hardware but behave differently in a virtual environment. 
+---
 
-
-##
-As of 7/11, there is no VLAN playbook as I have to think of how to connect via SSH manually before I make the playbook (that's how I'm approaching Ansible: do it manually first and then automate it). I'm thinking that I have to do bastion jump host again but I will make a new section in the AnsibleNotes.md called 'VLAN Playbook' detailing the switch configurations. Once the whole network is communicating, I will make a DHCP pool playbook then a banner playbook to finish things off. When everything is completed, we will create a new network with the same playbooks and demonstrate with a video the capabilities of Ansible. 
-
-## Things are changing again...
-
+### Things are changing again...
+---/
 To give more context on top of the current one, the network will still use a Router-on-a-stick configuration. However, I'm changing my perspective on how EVE-NG works and it's sort of working:
 - I have to consider that the EVE interface to the virtual network is a node on its own, so a router/bridge that is still included in the network even though it's not managed by the network. 
 
@@ -16,13 +13,14 @@ Until now, I've been approaching EVE as a network simulating tool which this app
 ### So what's changing this time?
 ---
 
-I'm only connecting the router and the switch to the EVE node. This allows me to connect via SSH, push the playbooks, verify them. After verifying the playbooks, I'm going to *try* to attempt to configure a separate network within again and see if there's an opportunity to demonstrate Ansible at a great capacity. 
+I'm only connecting the router and the switch to the EVE node. This allows me to connect via SSH, push the playbooks, verify them. After verifying the playbooks, I'm going to *try* to attempt to configure a separate network within again and see if there's an opportunity to demonstrate Ansible at a great capacity. If not, I will consider the VLAN playbook as the final playbook of this project until I can solve the problem through different images or find an alternative solution.
 
 
 ## New NEW Layout
 
-[image will go here once I get the photo, designing the idea for the network on paper and through Cisco Packet Tracer]
+![New Layout for Network](image.png)
 
+This is the current and likely the final iteration that I need to do.
 
 # Below is still very good information but irrelevant for the project.
 ~~Why is there no VLAN 10?~~
