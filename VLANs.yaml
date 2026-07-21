@@ -54,8 +54,9 @@
       cisco.ios.ios_l2_interfaces:
         config:
           - name: GigabitEthernet0/0
-            encapsulation: dot1q
             mode: trunk
+            trunk:
+              encapsulation: dot1q
     - name: Assign Ports
       cisco.ios.ios_l2_interfaces:
         config:
