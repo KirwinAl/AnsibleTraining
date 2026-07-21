@@ -52,7 +52,7 @@ all:
     switches:
       hosts:
         SW1:
-          #ansible_host: 
+          ansible_host: 192.168.122.70 
 ```
 
 To quickly explain the fields and to talk two "hidden" variables, let's begin with `vars:`
@@ -60,8 +60,6 @@ To quickly explain the fields and to talk two "hidden" variables, let's begin wi
 `vars:` is short for variables, this is where you put anything that Ansible needs to setup before trying to connect via SSH. `network_os` is the "library" needed to talk to the devices and since it's under the `all:` grouping, it will apply to all the devices in the inventory file. `connection:` is the method of communication for Ansible. `network_cli` is simply network command line interface, the method normally used when someone SSH's to a device.
 
 `children:` This is where you start naming different groups and logically separating devices. `routers` and `switches` are two different groups, `hosts` is formalizing the device, `SW1` and `R1` are the names of the devices and `ansible_host:` will have the FQDN or IP address of the device. 
-
-**`#` exists for now since I'm still developing the network through Ansible. This is the commenting symbol and Ansible will not process that symbol and anything after in the same line.**
 
 Now there are two hidden "variables" that I used to connect to the devices: 
 
@@ -78,3 +76,27 @@ ansible_password: (SSH Password)
 As for the device configuration, since I have to manually do this anyway before Ansible can directly take over, make sure the SSH version is version 2. 
 
 ***Version 1 and 1.99 are not supported in my experience.***
+
+## VLAN, Interfaces, Routing, etc.
+
+Surprisingly, this section was very straight-forward when configuring these.
+
+**VLANS**: `ios_vlans` simply had the configurations of `#vlan <number>` in the Cisco CLI and if I wanted to configure IP addresses in the network (which works but the image that I chose for this network is giving me issues, more in *NetworkNotes.md*), I used `ios_config` using the `parent` context like above.
+
+There is a section that I did use something new: `ios_l2_interfaces`
+This allowed me to set the Switchport Access VLAN for the switch. I did have to use the `ios_config` to set the encapsulation for the trunk but using `ios_l2_interfaces` allowed me to switch the mode of the `Gi0/0` port.
+
+**Routing**: `ios_config` is what I used for all of the configuration here. I know `ios_ospfv2` and `ios_ospfv3` exists but I wanted to keep configurations as clear to me as possible. The playbook does work and my original idea would work in a physical environment.
+
+**Interfaces**: This playbook works great and logically, this playbook is important for allowing communication between VLANs. However, because a pesky feature in the CSR image: `CEF`, it's beyond my knowledge at the moment to disable this. Normally, `no ip cef` disables this but it does not work since CSR images are experimental and does not support disabling CEF. 
+
+
+## Final Playbook
+The final Playbook is simply going to be a combination playbook. In other words, a "master" playbook that combines other playbooks to "restore" the network after an accidental wipeout or a restoration after upgrading devices. Using `ansible.builtin.import_playbook`, I can simply run all the playbooks that I need to redo the network to exactly how it was configured. 
+
+While I would love to continue with more playbooks, the limitations that I'm running into with EVE-NG are too big to ignore and continue learning efficiently.
+#
+
+Since this will be the final playbook, I will write my final thoughts about Ansible: 
+
+This is an incredible tool that Network Engineers and Administrators should start looking into putting into their arsenal. The amount of time saved from repeating commands over several routers is greatly saved and the best part is there is no external software to install on the devices, just on a main computer (whether that's on WSL, macOS or Linux). 

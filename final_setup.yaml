@@ -1,0 +1,10 @@
+- name: Final Setup
+
+- name: Configure VLAN on Switches
+  ansible.builtin.import_playbook: VLANs.yaml
+
+- name: Configure Interfaces on Routers
+  ansible.builtin.import_playbook: interfaces.yaml
+
+- name: Configure Routing on Routers
+  ansible.builtin.import_playbook: routing.yaml
