@@ -50,13 +50,18 @@
 - name: Trunking and Assigning Ports
   hosts: switches
   tasks:
-    - name: Trunk
+    - name: Set Trunk Encapsulation
+      cisco.ios.ios_config:
+        lines:
+          - switchport trunk encapsulation dot1q
+        parents:
+          - interface GigabitEthernet0/0
+    - name: Change Port Mode to Trunk
       cisco.ios.ios_l2_interfaces:
         config:
           - name: GigabitEthernet0/0
             mode: trunk
-            trunk:
-              encapsulation: dot1q
+            
     - name: Assign Ports
       cisco.ios.ios_l2_interfaces:
         config:
