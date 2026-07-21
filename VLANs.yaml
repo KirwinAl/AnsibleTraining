@@ -3,21 +3,24 @@
   tasks:
     - name: Create VLAN 10
       cisco.ios.ios_vlans:
-        vlan_id: 10
-        name: Management
-        state: present
+        config:
+          - vlan_id: 10
+            name: Management
+            state: active
 
     - name: Create VLAN 20
       cisco.ios.ios_vlans:
-        vlan_id: 20
-        name: Users
-        state: present
+        config:
+          - vlan_id: 20
+            name: Users
+            state: active
 
     - name: Create VLAN 30
       cisco.ios.ios_vlans:
-        vlan_id: 30
-        name: Reserved
-        state: present
+        config:
+          - vlan_id: 30
+            name: Reserved
+            state: active
 
 - name: Assigning IP addresses to VLANs
   hosts: switches
@@ -48,13 +51,13 @@
   hosts: switches
   tasks:
     - name: Trunk
-      cisco.ios.ios_l2interfaces:
+      cisco.ios.ios_l2_interfaces:
         config:
           - name: GigabitEthernet0/0
             encapsulation: dot1q
             mode: trunk
     - name: Assign Ports
-      cisco.ios.ios_l2interfaces:
+      cisco.ios.ios_l2_interfaces:
         config:
           - name: GigabitEthernet0/1
             mode: access
