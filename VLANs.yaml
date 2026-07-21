@@ -1,0 +1,74 @@
+- name: Create VLANs
+  hosts: switches
+  tasks:
+    - name: Create VLAN 10
+      cisco.ios.ios_vlan:
+        vlan_id: 10
+        name: Management
+        state: present
+
+    - name: Create VLAN 20
+      cisco.ios.ios_vlan:
+        vlan_id: 20
+        name: Users
+        state: present
+
+    - name: Create VLAN 30
+      cisco.ios.ios_vlan:
+        vlan_id: 30
+        name: Reserved
+        state: present
+
+- name: Trunking and Assigning Ports
+  hosts: switches
+  tasks:
+    - name: Trunk
+      cisco.ios.ios_l2interfaces:
+        config:
+          - name: GigabitEthernet0/0
+            encapsulation: dot1q
+            mode: trunk
+    - name: Assign Ports
+      cisco.ios.ios_l2interfaces:
+        config:
+          - name: GigabitEthernet0/1
+            mode: access
+            access:
+              vlan: 10
+          - name: GigabitEthernet1/1
+            mode: access
+            access:
+              vlan: 10
+          - name: GigabitEthernet0/2
+            mode: access
+            access:
+              vlan: 20
+          - name: GigabitEthernet1/2
+            mode: access
+            access:
+              vlan: 20
+          - name: GigabitEthernet0/3
+            mode: access
+            access:
+              vlan: 30
+          - name: GigabitEthernet1/3
+            mode: access
+            access:
+              vlan: 30
+
+- name: Disable unused Port
+  hosts: switches
+  tasks:
+    - name: Disable GigabitEthernet 1/0
+      cisco.ios.ios_interfaces:
+        config:
+          - name: GigabitEthernet1/0
+            enabled: false
+
+# Seeing that it's not saving, this is needed.
+- name: Save configuration
+  hosts: switches
+  tasks:
+    - name: Save configuration if modified
+      cisco.ios.ios_config:
+        save_when: changed
