@@ -1,5 +1,5 @@
 - name: Create VLANs
-  hosts: switches
+  hosts: vlans
   tasks:
     - name: Create VLAN 10
       cisco.ios.ios_vlans:
