@@ -11,10 +11,10 @@ all:
       hosts:
         VLAN10:
           ansible_host: 10.10.10.1
-        VLAN20:
-          ansible_host: 10.10.10.65
-        VLAN30:
-          ansible_host: 10.10.10.129
+        #VLAN20:
+          #ansible_host: 10.10.10.65
+        #VLAN30:
+          #ansible_host: 10.10.10.129
     
     #switches:
       #hosts:
