@@ -1,22 +1,22 @@
 - name: Removing Sub-interfaces 
   hosts: routers
   tasks:
-    - name: Remove Gi2.10 
+    - name: Remove Gi0/1.10 
       cisco.ios.ios_config:
         lines:
-          - no interface GigabitEthernet2.10
+          - no interface GigabitEthernet0/1.10
 
-    - name: Remove Gi2.20 
+    - name: Remove Gi0/1.20 
       cisco.ios.ios_config:
         lines:
-          - no interface GigabitEthernet2.20
+          - no interface GigabitEthernet0/1.20
           
-    - name: Remove Gi2.30 
+    - name: Remove Gi0/1.30 
       cisco.ios.ios_config:
         lines:
-          - no interface GigabitEthernet2.30
+          - no interface GigabitEthernet0/1.30
 
-- name: Shutting down GigabitEthernet2
+- name: Shutting down GigabitEthernet0/1
   hosts: routers
   tasks:
     - name: Shut down interfaces
@@ -24,7 +24,7 @@
         lines:
           - shutdown
         parents:
-          - interface GigabitEthernet2
+          - interface GigabitEthernet0/1
 
 - name: Save configuration
   hosts: routers
