@@ -90,6 +90,10 @@ This allowed me to set the Switchport Access VLAN for the switch. I did have to 
 
 **Interfaces**: This playbook works great and logically, this playbook is important for allowing communication between VLANs. However, because a pesky feature in the CSR image: `CEF`, it's beyond my knowledge at the moment to disable this. Normally, `no ip cef` disables this but it does not work since CSR images are experimental and does not support disabling CEF. 
 
+## Applying Ansible Playbooks
+
+The process is actually simple: `ansible-playbook -i <inventory_file>.yaml <playboook_to_run>.yaml`
+That's it, there are a couple of flags if you want to debug what's happening which is important but once you understand the code structure enough, there's hardly need to use the verbose flags unless something goes incredibly wrong, (`-v` at the end of the statement).
 
 ## Final Playbook
 The final Playbook is simply going to be a combination playbook. In other words, a "master" playbook that combines other playbooks to "restore" the network after an accidental wipeout or a restoration after upgrading devices. Using `ansible.builtin.import_playbook`, I can simply run all the playbooks that I need to redo the network to exactly how it was configured. 
