@@ -7,9 +7,9 @@ all:
       hosts:
         R1:
           ansible_host: 192.168.122.71
-    vlans:
+    switches:
       hosts:
-        VLAN10:
+        SW1:
           ansible_host: 10.10.10.1
         #VLAN20:
           #ansible_host: 10.10.10.65
